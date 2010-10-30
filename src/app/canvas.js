@@ -59,6 +59,7 @@ dots.Canvas.prototype.addListeners_ = function() {
 dots.Canvas.prototype.mouseDown_ = function(event) {
   this.graphics_.drawEllipse(event.clientX, event.clientY, 10, 10, null, this.fill_);
   
+  // Removing the following lines doesn't affect the bug in Chrome.
   event.stopPropagation();
   event.preventDefault();
 };

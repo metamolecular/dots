@@ -1,5 +1,9 @@
 Dots: Demonstration of a possible SVG rendering bug in Google Closure and/or Chrome
 
+On Safari, FF, and IE, you should see a red dot appear wherever you click in the gray background area.
+
+On Chrome 7.0.517.41, you may see a few dots appear, but then they either won't appear at all or only partially. After more clicking, all unrendered dots will appear at once.
+
 To install the Google Closure dependency:
 
 $ git submodule init
