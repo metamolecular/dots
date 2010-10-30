@@ -1,3 +1,5 @@
+Dots: Demonstration of a possible SVG rendering bug in Google Closure and/or Chrome
+
 To install the Google Closure dependency:
 
 $ git submodule init
