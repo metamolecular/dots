@@ -1,0 +1,16 @@
+To install the Google Closure dependency:
+
+$ git submodule init
+$ git submodule update
+
+(see also: http://daniel.collectiveidea.com/blog/2008/4/9/git-submodules)
+
+To create dependencies:
+
+$ rake deps
+
+Demos are located in demo directory.
+
+For info on synchronizing Closure's SVN with the git submodule used here, see:
+
+http://stackoverflow.com/questions/796991/fork-and-sync-google-code-svn-into-github

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+mkdir -p build
+
+python lib/closure/closure/bin/calcdeps.py \
+  --path lib/closure/closure \
+  --path src \
+  --output_mode deps \
+  > build/deps.js
