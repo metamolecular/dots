@@ -13,7 +13,7 @@ $ git submodule update
 
 To create dependencies:
 
-$ rake deps
+$ ./deps
 
 Demos are located in demo directory.
 
