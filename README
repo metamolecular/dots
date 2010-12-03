@@ -1,8 +1,25 @@
-Dots: Demonstration of a possible SVG rendering bug in Google Closure and/or Chrome
+Dots: Demonstration of a possible SVG event bug in Google Chrome
 
-On Safari, FF, and IE, you should see a red dot appear wherever you click in the gray background area.
+Pass behavior: Click on the gray square. A red dot will appear. Hover over the dot and it will turn green.
+Fail behavior: Click on the gray square. A red dot appears. Hovering on the dot does not change its color.
 
-On Chrome 7.0.517.41, you may see a few dots appear, but then they either won't appear at all or only partially. After more clicking, all unrendered dots will appear at once.
+Results of test below:
+
+Windows
+
+- IE 9.0.7930.16406 Beta (pass)
+- Chrome 8.0.552.215 (fail)
+
+Mac
+
+- Safari 5.0.3/Mac (pass)
+- Firefox 3.6.12 (pass)
+- Chrome 8.0.552.215 (pass)
+
+Linux
+
+- Chrome 8.0.552.215 (fail)
+- Firefox 3.6.11 (pass)
 
 To install the Google Closure dependency:
 

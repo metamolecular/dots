@@ -3,7 +3,7 @@ goog.provide('dots.Canvas');
 goog.require('goog.dom');
 goog.require('goog.events');
 goog.require('goog.style');
-goog.require('goog.graphics');
+goog.require('goog.graphics.SvgGraphics');
 goog.require('goog.math.Coordinate');
 goog.require('goog.ui.Component');
 goog.require('goog.graphics.SolidFill');
@@ -15,6 +15,7 @@ goog.require('goog.graphics.AffineTransform');
 dots.Canvas = function(opt_domHelper) {
   goog.base(this, opt_domHelper);
   
+  this.zoom_ = 100;
   this.graphics_ = undefined;
   this.redFill_ = new goog.graphics.SolidFill('#CC2222', 1);
   this.greenFill_ = new goog.graphics.SolidFill('#22CC22', 1);
@@ -45,12 +46,12 @@ dots.Canvas.prototype.createDom = function() {
  */
 dots.Canvas.prototype.configureGraphics_ = function() {
   var size = goog.style.getSize(this.getElement());
-  var factor = 100;
-  this.graphics_ = goog.graphics.createGraphics(size.width, size.height);
+  this.graphics_ = new goog.graphics.SvgGraphics(size.width, size.height);
   this.tx_ = new goog.graphics.AffineTransform();
   
-  this.tx_.scale(factor, -factor);
-  this.tx_.translate(0, -factor * size.height);
+  this.graphics_.createDom();
+  this.tx_.scale(this.zoom_, -this.zoom_);
+  this.tx_.translate(0, -this.zoom_ * size.height);
   
   this.graphics_.getCanvasElement().getElement().setAttribute('transform', 'matrix(' + 
     this.tx_.m00_ +', ' +
@@ -115,7 +116,6 @@ dots.Canvas.prototype.mouseOver_ = function(event) {
   var dot = this.dots_[goog.getUid(event.target)];
   
   if (dot) {
-    console.info('dot hovered');
     dot.setFill(this.greenFill_);
   } else {
     
@@ -129,7 +129,6 @@ dots.Canvas.prototype.mouseOut_ = function(event) {
   var dot = this.dots_[goog.getUid(event.target)];
   
   if (dot) {
-    console.info('dot unhovered');
     dot.setFill(this.redFill_);
   } else {
     
